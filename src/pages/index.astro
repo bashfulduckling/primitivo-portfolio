@@ -1,0 +1,203 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile, education, research, publications, talks, honours, community } from "../data/cv";
+---
+
+<BaseLayout title="Primitivo III Ragandang">
+  <!-- Hero Section with Image -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Primitivo III Ragandang</h1>
+      <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 12px;">
+        {profile.title}
+      </p>
+      <p style="color: var(--text-muted); margin-bottom: 32px;">
+        {profile.affiliation}
+      </p>
+
+      <p style="max-width: 500px; font-size: 1rem; line-height: 1.8;">
+        {profile.bio}
+      </p>
+
+      <div class="contact-info">
+        <span>{profile.phone}</span>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="/#education" class="btn btn-primary">Explore My Work</a>
+        <a href="/cv" class="btn btn-secondary">Download CV</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="/profile.jpg" alt="Primitivo III Ragandang" />
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+      {education.map((item) => (
+        <div class="timeline-item">
+          <div class="timeline-year">{item.year}</div>
+          <div class="timeline-title">{item.degree}</div>
+          {item.field && <div class="timeline-org">{item.field}</div>}
+          <div class="timeline-org">{item.institution}</div>
+          {item.thesis && (
+            <div class="timeline-desc">
+              <strong>Thesis:</strong> {item.thesis}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Research Experience Section -->
+  <section id="research">
+    <h2>Research Experience</h2>
+    <div class="timeline">
+      {research.map((item) => (
+        <div class="timeline-item">
+          <div class="timeline-year">{item.year}</div>
+          <div class="timeline-title">{item.title}</div>
+          <div class="timeline-org">{item.role}</div>
+          {item.location && <div class="timeline-org">{item.location}</div>}
+          <div class="timeline-desc">{item.description}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications">
+    <h2>Publications</h2>
+
+    {publications.books.length > 0 && (
+      <div class="pub-category">
+        <div class="pub-category-title">Books</div>
+        {publications.books.map((pub) => (
+          <div class="pub-item">
+            <div class="pub-year">{pub.year}</div>
+            <div class="pub-title">{pub.title}</div>
+            <div class="pub-citation">
+              {pub.author} • {pub.publisher}
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {publications.editedBooks.length > 0 && (
+      <div class="pub-category">
+        <div class="pub-category-title">Edited Books</div>
+        {publications.editedBooks.map((pub) => (
+          <div class="pub-item">
+            <div class="pub-year">{pub.year}</div>
+            <div class="pub-title">{pub.title}</div>
+            <div class="pub-citation">{pub.editors} • {pub.publisher}</div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {publications.peerReviewed.length > 0 && (
+      <div class="pub-category">
+        <div class="pub-category-title">Peer-Reviewed Articles</div>
+        {publications.peerReviewed.map((pub) => (
+          <div class="pub-item">
+            <div class="pub-year">{pub.year}</div>
+            <div class="pub-title">{pub.title}</div>
+            <div class="pub-citation">
+              {pub.author || pub.authors}
+              {pub.journal && <span> • <em>{pub.journal}</em></span>}
+            </div>
+            {pub.link && (
+              <a href={pub.link} target="_blank" class="pub-link">
+                Read article →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+
+    {publications.chapters.length > 0 && (
+      <div class="pub-category">
+        <div class="pub-category-title">Book Chapters</div>
+        {publications.chapters.map((pub) => (
+          <div class="pub-item">
+            <div class="pub-year">{pub.year}</div>
+            <div class="pub-title">{pub.title}</div>
+            <div class="pub-citation">
+              {pub.authors || pub.author} • in <em>{pub.book}</em>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {publications.reports.length > 0 && (
+      <div class="pub-category">
+        <div class="pub-category-title">Reports & Outreach</div>
+        {publications.reports.map((pub) => (
+          <div class="pub-item">
+            <div class="pub-year">{pub.year}</div>
+            <div class="pub-title">{pub.title}</div>
+            <div class="pub-citation">{pub.author} • {pub.publisher}</div>
+            {pub.link && (
+              <a href={pub.link} target="_blank" class="pub-link">
+                Read online →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <!-- Presentations Section -->
+  <section id="presentations">
+    <h2>Selected Presentations</h2>
+    <div class="timeline">
+      {talks.map((talk) => (
+        <div class="timeline-item">
+          <div class="timeline-year">{talk.year}</div>
+          <div class="timeline-title">{talk.event}</div>
+          <div class="timeline-org">{talk.location}</div>
+          <div class="timeline-desc">
+            <strong>{talk.title}</strong>
+            <br/>
+            <span style="color: var(--text-muted);">{talk.dates}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Honours Section -->
+  <section id="honours">
+    <h2>Honours & Fellowships</h2>
+    <ul class="honour-list">
+      {honours.map((honour) => (
+        <li class="honour-item">{honour}</li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Community Section -->
+  <section id="community">
+    <h2>Community Engagement</h2>
+    <div class="timeline">
+      {community.map((item) => (
+        <div class="timeline-item">
+          <div class="timeline-year">{item.year}</div>
+          <div class="timeline-title">{item.title}</div>
+          <div class="timeline-desc">{item.description}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile, education, research, publications, talks, honours, community } from "../data/cv";
+---
+
+<BaseLayout title="CV - Primitivo III Ragandang">
+  <div style="text-align: center; margin-bottom: 30px;">
+    <h1>{profile.name}</h1>
+    <p style="margin: 5px 0;">{profile.title}</p>
+    <p style="margin: 5px 0; color: var(--muted);">{profile.affiliation}</p>
+    <p style="margin: 5px 0;">
+      <a href={`mailto:${profile.email}`}>{profile.email}</a> | {profile.phone}
+    </p>
+    <button onclick="window.print()" style="margin-top: 15px; padding: 8px 16px; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer;">
+      Print PDF
+    </button>
+  </div>
+
+  <h2>Education</h2>
+  {education.map((item) => (
+    <div style="margin-bottom: 15px;">
+      <strong>{item.degree}</strong> ({item.year})
+      <br/>
+      <span style="color: var(--muted);">{item.institution}</span>
+      {item.thesis && <div><em>Thesis: {item.thesis}</em></div>}
+    </div>
+  ))}
+
+  <h2>Research Experience (Selected)</h2>
+  {research.slice(0, 15).map((item) => (
+    <div style="margin-bottom: 12px;">
+      <strong>{item.title}</strong> ({item.year})
+      <br/>
+      <span style="color: var(--muted);">{item.role}</span>
+      <p style="margin: 5px 0;">{item.description}</p>
+    </div>
+  ))}
+
+  <h2>Selected Publications</h2>
+  <p style="color: var(--muted); margin-bottom: 15px;">
+    See full publication list on main portfolio page
+  </p>
+
+  <h3>Books</h3>
+  {publications.books.map((pub) => (
+    <p style="margin: 8px 0; font-size: 0.95rem;">
+      {pub.author} ({pub.year}). <strong>{pub.title}</strong>. {pub.publisher}
+    </p>
+  ))}
+
+  <h3>Recent Peer-Reviewed Articles</h3>
+  {publications.peerReviewed.slice(0, 10).map((pub) => (
+    <p style="margin: 8px 0; font-size: 0.95rem;">
+      {pub.author || pub.authors} ({pub.year}). {pub.title}. <em>{pub.journal}</em>
+    </p>
+  ))}
+
+  <h2>Selected Honours and Fellowships</h2>
+  <ul style="margin: 0; padding-left: 20px;">
+    {honours.slice(0, 10).map((honour) => (
+      <li style="margin: 5px 0; font-size: 0.95rem;">{honour}</li>
+    ))}
+  </ul>
+</BaseLayout>

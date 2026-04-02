@@ -1,0 +1,90 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description || "Portfolio"} />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-inner">
+          <a href="/" class="brand">Primitivo III Ragandang</a>
+          <nav class="nav">
+            <a href="/#hero" class="nav-link" data-section="hero">Home</a>
+            <a href="/#education" class="nav-link" data-section="education">Education</a>
+            <a href="/#research" class="nav-link" data-section="research">Research</a>
+            <a href="/#publications" class="nav-link" data-section="publications">Publications</a>
+            <a href="/#presentations" class="nav-link" data-section="presentations">Presentations</a>
+            <a href="/#honours" class="nav-link" data-section="honours">Honours</a>
+            <a href="/#community" class="nav-link" data-section="community">Community</a>
+            <a href="/cv" class="nav-link">CV</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Primitivo III Ragandang. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Intersection Observer for scroll tracking
+      const observerOptions = {
+        root: null,
+        rootMargin: "-50% 0px -50% 0px",
+        threshold: 0,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Remove active class from all links
+            document.querySelectorAll(".nav-link").forEach((link) => {
+              link.classList.remove("active");
+            });
+
+            // Add active class to current section's link
+            const sectionId = entry.target.id;
+            const activeLink = document.querySelector(
+              `.nav-link[data-section="${sectionId}"]`
+            );
+            if (activeLink) {
+              activeLink.classList.add("active");
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections
+      document.querySelectorAll("section[id]").forEach((section) => {
+        observer.observe(section);
+      });
+
+      // Also observe hero area
+      const mainContent = document.querySelector("main > .container > .hero");
+      if (mainContent) {
+        mainContent.id = "hero";
+        observer.observe(mainContent);
+      }
+    </script>
+  </body>
+</html>
