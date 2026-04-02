@@ -1,0 +1,1 @@
+import"./hoisted.B0YpOIph.js";const t=document.querySelector(".cta-hidden"),e=document.querySelector(".hero");window.addEventListener("scroll",()=>{e.getBoundingClientRect().bottom<window.innerHeight?t.classList.add("cta-visible"):t.classList.remove("cta-visible")});

@@ -180,7 +180,8 @@ export const publications = {
       title: "Peacebuilding and Memory in the Philippines: Transgenerational Resilience",
       author: "Ragandang, Primitivo III",
       publisher: "Palgrave MacMillan",
-      doi: "doi.org/10.1007/978-3-031-90375-5"
+      doi: "doi.org/10.1007/978-3-031-90375-5",
+      link: "https://doi.org/10.1007/978-3-031-90375-5"
     },
     {
       year: 2024,

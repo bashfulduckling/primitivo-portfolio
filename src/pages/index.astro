@@ -119,6 +119,9 @@ import { profile, education, research, publications, talks, teaching, honours, c
             <div class="pub-title">{pub.title}</div>
             <div class="pub-citation">
               {pub.author} • {pub.publisher}
+              {pub.doi && (
+                <span> • <a href={`https://doi.org/${pub.doi.replace(/^(https?:\/\/)?doi\.org\//i, '')}`} target="_blank" rel="noopener noreferrer">{pub.doi}</a></span>
+              )}
             </div>
           </div>
         ))}
