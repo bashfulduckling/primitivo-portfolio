@@ -6,74 +6,109 @@ import { profile, education, research, publications, talks, honours, community }
 <BaseLayout title="Primitivo III Ragandang">
   <!-- Hero Section with Image -->
   <section class="hero" id="hero">
+    <div class="hero-image">
+      <img src="/profile.jpg" alt="Primitivo III Ragandang" />
+    </div>
+
     <div class="hero-content">
-      <h1>Primitivo III Ragandang</h1>
-      <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 12px;">
+      <h1>{profile.name}</h1>
+      
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 8px;">
         {profile.title}
       </p>
-      <p style="color: var(--text-muted); margin-bottom: 32px;">
-        {profile.affiliation}
-      </p>
+      
+      <div class="hero-affiliation">
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary);">Department of Political Science</p>
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary);">College of Arts and Social Sciences</p>
+        <a href="https://msuiit.edu.ph" target="_blank" rel="noopener noreferrer" class="university-link">
+          <img src="/msuiit-logo.png" alt="MSU-IIT Logo" class="university-logo-img" />
+          Mindanao State University-Iligan Institute of Technology
+        </a>
+      </div>
 
-      <p style="max-width: 500px; font-size: 1rem; line-height: 1.8;">
+      <p class="hero-bio">
         {profile.bio}
       </p>
 
       <div class="contact-info">
-        <span>{profile.phone}</span>
-        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <a href={`tel:${profile.phone}`} class="contact-link" title="Call">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </a>
+        <a href={`mailto:${profile.email}`} class="contact-link" title="Email">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </a>
+        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="contact-link" title="LinkedIn">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path>
+          </svg>
+        </a>
       </div>
 
-      <div class="cta-buttons">
-        <a href="/#education" class="btn btn-primary">Explore My Work</a>
-        <a href="/cv" class="btn btn-secondary">Download CV</a>
+      <div class="cta-buttons cta-hidden">
+        <a href="/#education" class="btn btn-primary">
+          <span>Explore My Work</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M19 12l-7 7-7-7"></path>
+          </svg>
+        </a>
       </div>
-    </div>
-
-    <div class="hero-image">
-      <img src="/profile.jpg" alt="Primitivo III Ragandang" />
     </div>
   </section>
 
   <!-- Education Section -->
-  <section id="education">
-    <h2>Education</h2>
+  <section id="education" class="content-section">
+    <div class="section-header">
+      <h2>Education</h2>
+    </div>
     <div class="timeline">
       {education.map((item) => (
         <div class="timeline-item">
           <div class="timeline-year">{item.year}</div>
-          <div class="timeline-title">{item.degree}</div>
-          {item.field && <div class="timeline-org">{item.field}</div>}
-          <div class="timeline-org">{item.institution}</div>
-          {item.thesis && (
-            <div class="timeline-desc">
-              <strong>Thesis:</strong> {item.thesis}
-            </div>
-          )}
+          <div class="timeline-content">
+            <div class="timeline-title">{item.degree}</div>
+            {item.field && <div class="timeline-org">{item.field}</div>}
+            <div class="timeline-org">{item.institution}</div>
+            {item.thesis && (
+              <div class="timeline-desc">
+                <strong>Thesis:</strong> {item.thesis}
+              </div>
+            )}
+          </div>
         </div>
       ))}
     </div>
   </section>
 
   <!-- Research Experience Section -->
-  <section id="research">
-    <h2>Research Experience</h2>
+  <section id="research" class="content-section">
+    <div class="section-header">
+      <h2>Research Experience</h2>
+    </div>
     <div class="timeline">
       {research.map((item) => (
         <div class="timeline-item">
           <div class="timeline-year">{item.year}</div>
-          <div class="timeline-title">{item.title}</div>
-          <div class="timeline-org">{item.role}</div>
-          {item.location && <div class="timeline-org">{item.location}</div>}
-          <div class="timeline-desc">{item.description}</div>
+          <div class="timeline-content">
+            <div class="timeline-title">{item.title}</div>
+            <div class="timeline-org">{item.role}</div>
+            {item.location && <div class="timeline-org">{item.location}</div>}
+            <div class="timeline-desc">{item.description}</div>
+          </div>
         </div>
       ))}
     </div>
   </section>
 
   <!-- Publications Section -->
-  <section id="publications">
-    <h2>Publications</h2>
+  <section id="publications" class="content-section">
+    <div class="section-header">
+      <h2>Publications</h2>
+    </div>
 
     {publications.books.length > 0 && (
       <div class="pub-category">
@@ -97,7 +132,9 @@ import { profile, education, research, publications, talks, honours, community }
           <div class="pub-item">
             <div class="pub-year">{pub.year}</div>
             <div class="pub-title">{pub.title}</div>
-            <div class="pub-citation">{pub.editors} • {pub.publisher}</div>
+            <div class="pub-citation">
+              {pub.editors} • {pub.publisher}
+            </div>
           </div>
         ))}
       </div>
@@ -111,14 +148,9 @@ import { profile, education, research, publications, talks, honours, community }
             <div class="pub-year">{pub.year}</div>
             <div class="pub-title">{pub.title}</div>
             <div class="pub-citation">
-              {pub.author || pub.authors}
-              {pub.journal && <span> • <em>{pub.journal}</em></span>}
+              {pub.author || pub.authors} • <em>{pub.journal}</em>
             </div>
-            {pub.link && (
-              <a href={pub.link} target="_blank" class="pub-link">
-                Read article →
-              </a>
-            )}
+            {pub.link && <a href={pub.link} class="pub-link">Read Article</a>}
           </div>
         ))}
       </div>
@@ -132,7 +164,7 @@ import { profile, education, research, publications, talks, honours, community }
             <div class="pub-year">{pub.year}</div>
             <div class="pub-title">{pub.title}</div>
             <div class="pub-citation">
-              {pub.authors || pub.author} • in <em>{pub.book}</em>
+              {pub.author || pub.authors} • <em>{pub.book}</em> ({pub.publisher})
             </div>
           </div>
         ))}
@@ -141,17 +173,15 @@ import { profile, education, research, publications, talks, honours, community }
 
     {publications.reports.length > 0 && (
       <div class="pub-category">
-        <div class="pub-category-title">Reports & Outreach</div>
+        <div class="pub-category-title">Reports & Essays</div>
         {publications.reports.map((pub) => (
           <div class="pub-item">
             <div class="pub-year">{pub.year}</div>
             <div class="pub-title">{pub.title}</div>
-            <div class="pub-citation">{pub.author} • {pub.publisher}</div>
-            {pub.link && (
-              <a href={pub.link} target="_blank" class="pub-link">
-                Read online →
-              </a>
-            )}
+            <div class="pub-citation">
+              {pub.author || pub.authors} • {pub.publisher}
+            </div>
+            {pub.link && <a href={pub.link} class="pub-link">Read</a>}
           </div>
         ))}
       </div>
@@ -159,18 +189,18 @@ import { profile, education, research, publications, talks, honours, community }
   </section>
 
   <!-- Presentations Section -->
-  <section id="presentations">
-    <h2>Selected Presentations</h2>
+  <section id="presentations" class="content-section">
+    <div class="section-header">
+      <h2>Presentations & Talks</h2>
+    </div>
     <div class="timeline">
-      {talks.map((talk) => (
+      {talks.map((item) => (
         <div class="timeline-item">
-          <div class="timeline-year">{talk.year}</div>
-          <div class="timeline-title">{talk.event}</div>
-          <div class="timeline-org">{talk.location}</div>
-          <div class="timeline-desc">
-            <strong>{talk.title}</strong>
-            <br/>
-            <span style="color: var(--text-muted);">{talk.dates}</span>
+          <div class="timeline-year">{item.year}</div>
+          <div class="timeline-content">
+            <div class="timeline-title">{item.title}</div>
+            <div class="timeline-org">{item.event}</div>
+            <div class="timeline-org">{item.location} • {item.dates}</div>
           </div>
         </div>
       ))}
@@ -178,8 +208,10 @@ import { profile, education, research, publications, talks, honours, community }
   </section>
 
   <!-- Honours Section -->
-  <section id="honours">
-    <h2>Honours & Fellowships</h2>
+  <section id="honours" class="content-section">
+    <div class="section-header">
+      <h2>Honours & Awards</h2>
+    </div>
     <ul class="honour-list">
       {honours.map((honour) => (
         <li class="honour-item">{honour}</li>
@@ -188,16 +220,36 @@ import { profile, education, research, publications, talks, honours, community }
   </section>
 
   <!-- Community Section -->
-  <section id="community">
-    <h2>Community Engagement</h2>
+  <section id="community" class="content-section">
+    <div class="section-header">
+      <h2>Community Engagement</h2>
+    </div>
     <div class="timeline">
       {community.map((item) => (
         <div class="timeline-item">
           <div class="timeline-year">{item.year}</div>
-          <div class="timeline-title">{item.title}</div>
-          <div class="timeline-desc">{item.description}</div>
+          <div class="timeline-content">
+            <div class="timeline-title">{item.title}</div>
+            <div class="timeline-desc">{item.description}</div>
+          </div>
         </div>
       ))}
     </div>
   </section>
+
+  <script>
+    // Show "Explore My Work" button on scroll
+    const ctaButton = document.querySelector('.cta-hidden');
+    const heroSection = document.querySelector('.hero');
+
+    window.addEventListener('scroll', () => {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      
+      if (heroBottom < window.innerHeight) {
+        ctaButton.classList.add('cta-visible');
+      } else {
+        ctaButton.classList.remove('cta-visible');
+      }
+    });
+  </script>
 </BaseLayout>

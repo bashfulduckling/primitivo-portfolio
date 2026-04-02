@@ -1,11 +1,13 @@
 export const profile = {
   name: "Primitivo III Cabanes Ragandang",
-  title: "Peace Researcher & Policy Scholar",
-  affiliation: "Department of Political Science, Mindanao State University-Iligan Institute of Technology",
+  title: "", // Remove title
+  affiliation: "Department of Political Science\nCollege of Arts and Social Sciences\nMindanao State University-Iligan Institute of Technology",
+  affiliationLink: "https://www.msuilt.edu.ph",
   phone: "+63 936 893 8794",
   email: "primitivo.ragandang@anu.edu.au",
   email2: "primitivoii.ragandang@g.msuilt.edu.ph",
-  bio: "International scholar with expertise in peacebuilding, youth engagement, and policy research in Mindanao, Philippines."
+  linkedIn: "https://www.linkedin.com/in/primitivo-ragandang",
+  bio: "I am a Lecturer in Peace and Conflict Studies at Mindanao State University-Iligan Institute of Technology, with a PhD from The Australian National University (2023). My research focuses on youth-led peacebuilding, memory, transgenerational resilience, and inclusive decision-making in post-conflict contexts, particularly in the Bangsamoro region and broader Asia-Pacific."
 };
 
 export const education = [
