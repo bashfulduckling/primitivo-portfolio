@@ -334,7 +334,7 @@ p {
 }
 
 /* ===== CONTENT SECTIONS ===== */
-.content-section {
+section {
   scroll-margin-top: 56px;
   padding: 80px 24px;
   border-top: 1px solid var(--border);
@@ -342,12 +342,8 @@ p {
   margin: 0 auto;
 }
 
-.section-header {
+section h2 {
   margin-bottom: 48px;
-}
-
-.section-header h2 {
-  margin: 0;
 }
 
 /* ===== TIMELINE ===== */
@@ -488,29 +484,13 @@ p {
   border-bottom: none;
 }
 
-/* ===== FOOTER ===== */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 48px 0;
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  margin-top: 120px;
-  background: linear-gradient(135deg, rgba(248, 249, 251, 0.5) 0%, rgba(240, 244, 248, 0.5) 100%);
-}
-
-footer p {
-  margin: 6px 0;
-  color: var(--text-muted);
-}
-
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
     gap: 48px;
     min-height: auto;
-    padding: 40px 24px;
+    padding: 60px 24px 80px 24px;
     align-items: center;
   }
 
@@ -528,9 +508,17 @@ footer p {
     grid-template-columns: 1fr;
     gap: 8px;
   }
+
+  .pub-item {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 768px) {
+  section {
+    padding: 60px 24px;
+  }
+
   header {
     padding: 12px 0;
   }
@@ -558,7 +546,7 @@ footer p {
 
   .hero {
     gap: 32px;
-    padding: 40px 24px;
+    padding: 60px 24px 80px 24px;
   }
 
   .contact-info {
@@ -575,23 +563,29 @@ footer p {
     height: 22px;
   }
 
-  .cta-buttons {
-    flex-direction: column;
-    gap: 12px;
+  .explore-button {
+    padding: 14px 32px;
+    font-size: 0.95rem;
+    margin-top: 20px;
   }
 
-  .btn {
-    width: 100%;
-    justify-content: center;
-    padding: 12px 24px;
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
   }
 
-  .pub-item {
-    margin-left: 0;
+  .timeline-year {
+    font-size: 0.85rem;
   }
 
-  .content-section {
-    padding: 60px 24px;
+  .timeline-title {
+    font-size: 1.05rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.9rem;
   }
 }
 

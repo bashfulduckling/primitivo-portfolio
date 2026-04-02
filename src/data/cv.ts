@@ -606,6 +606,45 @@ export const talks = [
   }
 ];
 
+export const teaching = [
+  {
+    year: "2016-present",
+    position: "Associate Professor",
+    institution: "Mindanao State University-Iligan Institute of Technology",
+    description: "Supervised 16 graduate and eight undergraduate theses in Political Science and peace studies. Handled courses on Issues in the Contemporary World, Gender and Development, Third World Political Theories, Contemporary Political Thoughts, Ancient and Medieval Political Thought, Foundations of Sustainable Development, and Introduction to Political Science; served as Project Adviser of Team Pakigasundugat, a youth-based global digital campaign of challenging violent extremism through positive messaging, impacting over 22,500 youth and with over 1 million impressions online, funded by Facebook, and recipient of Best Project Award in Georgetown University, United States of America; spearheaded an 18-month research on addressing young men and women's vulnerability in times of conflict, using an arts-based intervention programming with 35 public schools teachers from all over Mindanao, Philippines, resulting to the publication of the first copyright book on game-based peacebuilding in the institute's Political Science Department; assisted in the crafting of the institute's new curriculum Political Science for undergraduate and masters degrees; managed the 54-hour internship course of 38 Political Science graduating students to different industries across the Philippines"
+  },
+  {
+    year: "2021-2022",
+    position: "Tutor and Guest Lecturer",
+    institution: "The Australian National University",
+    description: "Tutor to undergraduate courses on Theory in International Relations and Emotions in International Relations; served as guest lecturer for graduate and undergraduate courses on Understanding Peace and Conflict, and Gender, War and Justice in South and Southeast Asia; provided marking support to the undergraduate course on Human Security: Conflict, Displacement and Peace Building"
+  },
+  {
+    year: "2014-2016",
+    position: "Lecturer",
+    institution: "Liceo de Cagayan University",
+    description: "Handled undergraduate courses on Comparative International Systems, Introduction to IR theories and issues, Contemporary Political Thoughts, and Philippine history; co-managed the 54-hour internship course of 12 International Relations students to different industries across Mindanao"
+  },
+  {
+    year: "2012-2013",
+    position: "Lecturer",
+    institution: "Xavier University-Ateneo de Cagayan University",
+    description: "Handled undergraduate courses on Political Science and Philippine Constitution, Life and Works of Dr Jose Rizal, and Philippine history"
+  },
+  {
+    year: "2010-2012",
+    position: "Instructor",
+    institution: "Tagoloan Community College",
+    description: "Supervised eight undergraduate theses in AB Sociology and Community Development, focused on traditional conflict transformation strategies, Filipino traditional health practices, and indigenous cultural communities; handled undergraduate courses on Qualitative Research, Political Science and Philippine Constitution, Gender and Development, Industrial Psychology, and Philippine history; pioneered qualitative research in Tagoloan Community College with Sociology and Community Development programs; organized 1st college-wide colloquium on 'Research Dichotomy: Understanding Qualitative and Quantitative Research Designs'; organized 1st School-wide Lecture Series on the 'relationship of religion and peace: a tri-people forum on Islam, Christianity, and Indigenous Religion in Mindanao' in partnership with the Rizzal-I Nur Institute; organized at least 300 university students in the making of photo exhibits, emphasizing the reasons why the Americans colonized the Philippines"
+  },
+  {
+    year: "2009-2011",
+    position: "Lecturer",
+    institution: "Mindanao University of Science and Technology",
+    description: "Handled undergraduate courses on Political Science and Philippine Constitution, Industrial Psychology, Philippine history, Personality Development; spearheaded a week-long university photo exhibit on human rights protection, Philippine history and constitution; coached four university scholars to a Mindanao-wide quiz bowl on Philippine history, constitution, and culture, making it to the top ten"
+  }
+];
+
 export const honours = [
   "Best Global South Scholar Book Award, ISA Peace Studies Section, March 2026",
   "Chancellor's Award for Social Science Research at Mindanao State University-Iligan, July 2025",
