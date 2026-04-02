@@ -6,7 +6,7 @@ export const profile = {
   phone: "+63 936 893 8794",
   email: "primitivo.ragandang@anu.edu.au",
   email2: "primitivoii.ragandang@g.msuilt.edu.ph",
-  linkedIn: "https://www.linkedin.com/in/primitivo-ragandang",
+  linkedIn: "https://www.linkedin.com/in/primitivo-iii-ragandang-b1086776/",
   bio: "I am a Lecturer in Peace and Conflict Studies at Mindanao State University-Iligan Institute of Technology, with a PhD from The Australian National University (2023). My research focuses on youth-led peacebuilding, memory, transgenerational resilience, and inclusive decision-making in post-conflict contexts, particularly in the Bangsamoro region and broader Asia-Pacific."
 };
 
