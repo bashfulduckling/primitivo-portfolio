@@ -352,8 +352,8 @@ section h2 {
 }
 
 .timeline-item {
-  margin-bottom: 56px;
-  padding-bottom: 56px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
   display: grid;
   grid-template-columns: 120px 1fr;
@@ -563,12 +563,12 @@ section h2 {
     height: 22px;
   }
 
- .explore-button {
-  padding: 14px 32px;
-  font-size: 0.95rem;
-  margin: 20px auto 0 auto;
-  width: fit-content;
-}
+  .explore-button {
+    padding: 14px 32px;
+    font-size: 0.95rem;
+    margin-top: 20px;
+  }
+
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 8px;
