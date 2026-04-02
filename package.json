@@ -9,9 +9,6 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/vercel": "^7.8.2",
-    "@keystatic/astro": "^5.0.6",
-    "@keystatic/core": "^0.5.50",
     "astro": "^4.16.0"
   },
   "devDependencies": {
