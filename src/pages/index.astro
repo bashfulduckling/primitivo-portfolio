@@ -1,9 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Search from "../components/Search.astro";
 import { profile, education, research, publications, talks, teaching, honours, community } from "../data/cv";
 ---
 
 <BaseLayout title="Primitivo III Ragandang">
+  <div id="search-section">
+    <Search />
+  </div>
   <!-- Hero Section with Image -->
   <section class="hero" id="hero">
     <div class="hero-image">
@@ -274,4 +278,16 @@ import { profile, education, research, publications, talks, teaching, honours, c
       }
     });
   </script>
+
+  <style>
+    #search-section {
+      position: sticky;
+      top: 57px;
+      z-index: 900;
+      background: rgba(248, 249, 251, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+    }
+  </style>
 </BaseLayout>
