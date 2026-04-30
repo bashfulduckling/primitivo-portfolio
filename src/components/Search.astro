@@ -75,7 +75,7 @@ const searchIndex = [
     body: item.description,
     year: String(item.year),
   })),
-  ...honours.map((honour, i) => ({
+  ...honours.map((honour) => ({
     section: "honours",
     sectionLabel: "Honours",
     title: honour,
@@ -137,10 +137,13 @@ const searchDataJson = JSON.stringify(searchIndex);
     if (!query) return escapeHtml(text);
     const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const re = new RegExp(`(${escaped})`, "gi");
-    return escapeHtml(text).replace(
-      re,
-      '<mark class="search-highlight">$1</mark>'
-    );
+    const parts = text.split(re);
+    return parts.map((part, i) => {
+      if (i % 2 === 1) {
+        return `<mark class="search-highlight">${escapeHtml(part)}</mark>`;
+      }
+      return escapeHtml(part);
+    }).join("");
   }
 
   function escapeHtml(str) {
@@ -224,7 +227,11 @@ const searchDataJson = JSON.stringify(searchIndex);
   function moveActive(dir) {
     const items = results.querySelectorAll(".search-result-item");
     if (!items.length) return;
-    activeIndex = (activeIndex + dir + items.length) % items.length;
+    if (activeIndex === -1) {
+      activeIndex = dir > 0 ? 0 : items.length - 1;
+    } else {
+      activeIndex = (activeIndex + dir + items.length) % items.length;
+    }
     items.forEach((el, i) => {
       el.classList.toggle("search-result-active", i === activeIndex);
     });
